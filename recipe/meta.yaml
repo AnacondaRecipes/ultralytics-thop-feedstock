@@ -20,6 +20,8 @@ requirements:
     - setuptools >=70.0.0
     - wheel
     - pip
+    - numpy {{ numpy }}
+    - pytorch {{ pytorch }}
   run:
     - python
     - numpy
