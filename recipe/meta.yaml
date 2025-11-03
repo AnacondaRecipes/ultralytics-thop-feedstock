@@ -39,11 +39,13 @@ test:
     - pytest
   
 about:
-  home: https://github.com/ultralytics/thop
+  home: https://ultralytics.com
   summary: Ultralytics THOP package for fast computation of PyTorch model FLOPs and parameters.
   description: | 
-    Welcome to the THOP repository, your comprehensive solution for profiling PyTorch models 
-    by computing the number of Multiply-Accumulate Operations (MACs) and parameters.
+    THOP offers an intuitive API designed to profile PyTorch models by calculating the total number of MACs and parameters. 
+    This functionality is vital for assessing the computational efficiency and memory footprint of deep learning models,
+    helping developers optimize performance for deployment, especially on edge devices.
+    Understanding these metrics is key to selecting the right model architecture, a topic explored in our model comparison pages.
   license: AGPL-3.0-only
   license_family: GPL
   license_file: LICENSE
