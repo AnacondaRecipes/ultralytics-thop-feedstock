@@ -1,17 +1,17 @@
 {% set name = "ultralytics-thop" %}
-{% set version = "2.0.18" %}
+{% set version = "2.1.6" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 21103bcd39cc9928477dc3d9374561749b66a1781b35f46256c8d8c4ac01d9cf
+  sha256: 0ec2df8ebd3db35795e1f80cdc8bce6734446dbe989bca1b0c89396353f0f08c
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
   skip: true  # [py<38]
 
 requirements:
@@ -33,13 +33,13 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    - pytest -v tests
+    - pytest -vv tests
   requires:
     - pip
     - pytest
   
 about:
-  home: https://ultralytics.com
+  home: https://www.ultralytics.com/
   summary: Ultralytics THOP package for fast computation of PyTorch model FLOPs and parameters.
   description: | 
     THOP offers an intuitive API designed to profile PyTorch models by calculating the total number of MACs and parameters. 
@@ -51,3 +51,7 @@ about:
   license_file: LICENSE
   dev_url: https://github.com/ultralytics/thop
   doc_url: https://docs.ultralytics.com
+
+extra:
+  skip-lints:
+    - cbc_dep_in_run_missing_from_host
